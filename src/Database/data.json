@@ -1,0 +1,38 @@
+{
+    "Nike Air Force": {
+        "name": "Nike Air Force",
+        "image": "images/air-force-1-07-shoe-6jXPDp.jpg"
+    },
+    "Nike Blazer Mid": {
+        "name": "Nike Blazer Mid",
+        "image": "images/air-max-270-shoe-9KTdg8qw.jpg"
+    },
+    "Nike Air Max 270": {
+        "name": "Nike Air Max 270",
+        "image": "images/air-vapormax-flyknit-3-shoe-kjL9RH.jpg"
+    },
+    "Nike Air VaporMax Flyknit 3": {
+        "name": "Nike Air VaporMax Flyknit 3",
+        "image": "images/air-zoom-pegasus-37-running-shoe-qVSCSr.jpg"
+    },
+    "Nike Blazer Mid Vintage '77": {
+        "name": "Nike Blazer Mid Vintage '77",
+        "iamge": "images/blazer-mid-older-shoe-kqDHTc.jpg"
+    },
+    "Nike Air Zoom Pegasus 37": {
+        "name": "Nike Air Zoom Pegasus 37",
+        "image": "images/blazer-mid-vintage-77-shoe-hZ9zks.jpg"
+    },
+    "Nike Metcon 6 X": {
+        "name": "Nike Metcon 6 X",
+        "image": "images/mercurial-vapor-13-elite-mbappe-rosa-fg-football-boot-gF9QQX.jpg"
+    },
+    "Nike Metcon 6 FlyEase": {
+        "name": "Nike Metcon 6 FlyEase",
+        "image": "images/metcon-6-flyease-training-shoe-gBbJh1.jpg"
+    },
+    "Nike Mercurial Vapor 13 Elite Mbappé Rosa FG": {
+        "name": "Nike Mercurial Vapor 13 Elite Mbappé Rosa FG",
+        "image": "images/metcon-6-training-shoe-BZqj2T.jpg"
+    }
+}
