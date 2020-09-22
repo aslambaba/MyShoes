@@ -34,7 +34,7 @@ function Products() {
 
     async function Data() {
         const api = await fetch('../Database/database.json');
-        const apij = await api.json;
+        const apij = await api.json();
         console.log(apij);
     }
     Data();
