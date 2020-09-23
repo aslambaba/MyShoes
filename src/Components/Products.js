@@ -33,7 +33,7 @@ function Products() {
     const classes = useStyles();
 
     async function Data() {
-        const api = await fetch('../Database/database.json');
+        const api = await fetch('../Database/data.json');
         const apij = await api.json();
         console.log(apij);
     }
