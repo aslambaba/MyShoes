@@ -1,5 +1,6 @@
 import React from 'react';
 import Menu from './Menu';
+import Footer from './Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -77,8 +78,7 @@ function Products() {
                     </Card>
                 )
             })}
-
-
+            <Footer />
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Menu from './Menu';
+import Footer from './Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -38,7 +39,14 @@ const useStyles = makeStyles((theme) => ({
   },
   addbtn: {
       width: '100%',
-      padding: '6px 20px'
+      padding: '12px 20px',
+      backgroundColor: '#2c2c2d',
+      color: 'white',
+      fontWeight: 'bold',
+      fontSize: '15px',
+      "&:hover" : {
+          backgroundColor: '#bf1111',
+      }
   }
 }));
 function Productitem() {
@@ -53,7 +61,7 @@ function Productitem() {
                     <Grid container spacing={2}>
                         <Grid item>
                             <ButtonBase className={classes.image}>
-                                <img className={classes.img} alt="complex" src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/ndbgikrmsa0ejcdmkvpg/air-force-1-07-shoe-6jXPDp.jpg" />
+                                <img className={classes.img} alt="complex" src={data[name].image} />
                             </ButtonBase>
                         </Grid>
                         <Grid item xs={12} sm container>
@@ -75,6 +83,7 @@ function Productitem() {
                     </Grid>
                 </Paper>
             </div>
+            <Footer />
         </div>
     )
 }
