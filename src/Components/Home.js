@@ -6,7 +6,11 @@ function Home(){
     return(
         <div>
             <Menu />
-            <div>Home Page</div>
+            <div>
+                <h1>Welcome to MyShoes</h1>
+                <image />
+                <button>Find Your Fashion</button>
+            </div>
             <Footer />
         </div>
         
