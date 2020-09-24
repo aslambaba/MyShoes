@@ -2,16 +2,14 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: '100%',
         backgroundColor: '#2c2c2d',
-        height: 70,
-        left: 0,
-        right: 0,
-        top: 0,
+        position: 'fixed',
+   left: 0,
+   bottom: 0,
         textAlign: 'center',
-        lineHeight: '65px',
         color: 'white',
-        fontSize: '18px'
+        fontSize: '18px',
+        width: "100%"
     }
 }));
 function Footer() {
