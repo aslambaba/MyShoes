@@ -23,9 +23,9 @@ function Menu() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Link className={classes.links} to='/' >Home</Link>
-            <Link className={classes.links} to='Products' >Products</Link>
-            <Link className={classes.links} to='About' >About Us</Link>
+            <Link className={classes.links} to={`/`} >Home</Link>
+            <Link className={classes.links} to={`/Products`} >Products</Link>
+            <Link className={classes.links} to={`/about`} >About Us</Link>
         </div>
   );
 }

@@ -8,59 +8,77 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import data from './../Database/data.json';
+import {
+    Link,
+    useRouteMatch
+} from "react-router-dom";
 const useStyles = makeStyles({
+    body: {
+        textAlign: 'center'
+    },
     root: {
-        maxWidth: 445,
+        maxWidth: '40%',
         margin: '20px 20px',
-        border: '1px solid black'
+        border: '1px solid black',
+        display: 'inline-block',
+        width: '100%',
+        textAlign: 'center',
     },
     media: {
-        height: 140,
+        height: 240,
     },
     vbuttonc: {
         textAlign: 'center',
-        width: '100%'
+        width: '100%',
+        display: 'inline-block',
+        padding: '0px 0px'
     },
     vbutton: {
         backgroundColor: 'black',
         color: 'white',
         textDecoration: 'none',
-    }
+        width: '100%',
+        "&:hover": {
+            backgroundColor: '#bf1111'
+        }
+    },
 });
 
 function Products() {
     const classes = useStyles();
 
-    async function Data() {
-        const api = await fetch('../Database/data.json');
-        const apij = await api.json();
-        console.log(apij);
-    }
-    Data();
+    let {url} = useRouteMatch();
 
     return (
-        <div>
+        <div className={classes.body}>
             <Menu />
-            <Card className={classes.root}>
-                <CardActionArea>
-                    <CardMedia
-                        className={classes.media}
-                        image="air-force-1-07-shoe-6jXPDp.jpg"
-                        title="Contemplative Reptile"
-                    />
-                    <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="h1">
-                            <b>Nike Air Force 107 Shoe</b>
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions className={classes.vbuttonc}>
-                    <Button size="small" color="primary" className={classes.vbutton}>
-                        View
-                    </Button>
-                </CardActions>
-            </Card>
+            {Object.keys(data).map((obj) => {
+                return (
+                    <Card className={classes.root}>
+                        <CardActionArea>
+                            <CardMedia
+                                className={classes.media}
+                                image={data[obj].image}
+                            />
+                            <CardContent>
+                                <Typography variant="body2" color="textSecondary" component="h1">
+                                    <b>{data[obj].name}</b>
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions className={classes.vbuttonc}>
+                            <Link to={`${url}/productitems/`+obj}>
+                                <Button className={classes.vbutton}>
+                                    View
+                                </Button>
+                            </Link>
+                        </CardActions>
+                    </Card>
+                )
+            })}
+
+
         </div>
     )
 }

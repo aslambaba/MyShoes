@@ -12,14 +12,17 @@ import {
 } from "react-router-dom";
 
 function App() {
+
+  
+
   return (
     <div className="App">
       < Router>
         <Switch>
           <Route exact path='/' component={Home}></Route>
           <Route exact path='/Products' component={Products}></Route>
-          <Route path='/Products/productitem' component={Productitem}></Route>
-          <Route path='/About' component={About}></Route>
+          <Route path='/Products/productitems/:name' component={Productitem}></Route>
+          <Route path='/about' component={About}></Route>
           <Route path='*' component={Page404}></Route>
         </Switch>
       </Router>
