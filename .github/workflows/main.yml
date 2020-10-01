@@ -33,8 +33,9 @@ jobs:
         with:
           # Yarn command
           cmd: install
-      - name: Download React ROuter
-        run: npm install react-router-dom
+          
+      - name: Download React Router
+        run: yarn add react-router-dom
         
       - name: Creating Build
         run: yarn build
