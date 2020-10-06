@@ -1,0 +1,5 @@
+[build]
+   command = "npm install react-router-dom"
+   
+   command = "react-scripts build"
+   publish = "build/"
