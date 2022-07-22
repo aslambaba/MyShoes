@@ -4,11 +4,13 @@ pipeline{
         nodejs "newnodejs"
     }
     stages {
-        stage('Install and Build App'){
+        stage('Install Dep'){
             steps {
                 sh 'npm install'
             }
         }
+    }
+    stages {
         stage("Build"){
             steps {
                 sh 'npm build'
