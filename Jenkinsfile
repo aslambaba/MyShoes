@@ -1,13 +1,15 @@
 pipeline{
-    agent none
+    agent any
     tools {
         nodejs "newnodejs"
     }
-    stages{
+    stages {
         stage('Install and Build App'){
             steps {
                 sh 'npm install'
             }
+        }
+        stage("Build"){
             steps {
                 sh 'npm build'
             }
