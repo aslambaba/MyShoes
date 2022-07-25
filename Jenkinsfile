@@ -9,11 +9,6 @@ pipeline{
             }
         }
         stage('Create Build'){
-            when{
-                expression{
-                    
-                }
-            }
             steps {
                 nodejs('newnodejs'){
                     sh 'npm run build'
