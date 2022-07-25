@@ -1,19 +1,18 @@
 pipeline{
     agent any
-    tools {
-        nodejs "newnodejs"
-    }
     stages {
         stage('Install Dep'){
             steps {
-                sh 'npm install'
+                nodejs('nodejs'){
+                    sh 'npm start'
+                }
             }
         }
-    }
-    stages {
-        stage("Build"){
+        stage('Create Build'){
             steps {
-                sh 'npm build'
+                nodejs('nodejs'){
+                    sh 'npm run build'
+                }
             }
         }
     }
