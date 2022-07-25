@@ -8,10 +8,10 @@ pipeline{
                 }
             }
         }
-        stage('Create Build'){
+        stage('Build Docker Image'){
             steps {
                 nodejs('newnodejs'){
-                    sh 'npm run-script build'
+                    sh 'docker build -t aslambaba/myshoes:v33 .'
                 }
             }
         }
