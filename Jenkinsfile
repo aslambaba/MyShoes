@@ -8,12 +8,6 @@ pipeline{
                 }
             }
         }
-        stage('Create Build'){
-            steps {
-                nodejs('newnodejs'){
-                    sh 'npm run build'
-                }
-            }
-        }
+        
     }
 }
