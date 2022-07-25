@@ -4,10 +4,21 @@ pipeline{
         stage('Install Dep'){
             steps {
                 nodejs('newnodejs'){
-                    sh 'npm start'
+                    sh 'npm install'
                 }
             }
         }
-        
+        stage('Create Build'){
+            when{
+                expression{
+                    
+                }
+            }
+            steps {
+                nodejs('newnodejs'){
+                    sh 'npm run build'
+                }
+            }
+        }
     }
 }
