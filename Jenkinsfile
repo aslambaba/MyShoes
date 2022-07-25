@@ -3,14 +3,14 @@ pipeline{
     stages {
         stage('Install Dep'){
             steps {
-                nodejs('nodejs'){
+                nodejs('newnodejs'){
                     sh 'npm start'
                 }
             }
         }
         stage('Create Build'){
             steps {
-                nodejs('nodejs'){
+                nodejs('newnodejs'){
                     sh 'npm run build'
                 }
             }
