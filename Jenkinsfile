@@ -10,9 +10,8 @@ pipeline{
         }
         stage('Build Docker Image'){
             steps {
-                nodejs('newnodejs'){
-                    sh 'docker build -t aslambaba/myshoes:v33 .'
-                }
+                docker.image('nginx:latest').inside {
+                sh 'docker build -t aslambaba/myshoes:v33 .'
             }
         }
     }
