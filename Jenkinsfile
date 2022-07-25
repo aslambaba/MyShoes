@@ -10,7 +10,7 @@ pipeline{
         }
         stage('Build Docker Image'){
             steps {
-                sh 'docker build -t aslambaba/myshoes:v33 .'
+                sh 'sudo docker build -t aslambaba/myshoes:v33 .'
             }
         }
     }
