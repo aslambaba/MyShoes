@@ -10,7 +10,9 @@ pipeline{
         }
         stage('Build Docker Image'){
             steps {
-                sh 'sudo docker build -t aslambaba/myshoes:v33 .'
+                script {
+                    dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+                }
             }
         }
     }
