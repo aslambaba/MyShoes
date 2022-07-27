@@ -10,9 +10,8 @@ pipeline{
         }
         stage('Build Docker Image'){
             steps {
-                script {
-                    dockerImage = docker.build "aslambaba/myshoes:v69"
-                }
+                sh 'docker build -t aslambaba/myshoes:99 .'
+                
             }
         }
     }
