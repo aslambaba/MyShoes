@@ -11,7 +11,7 @@ pipeline{
         stage('Build Docker Image'){
             steps {
                 script {
-                    dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+                    dockerImage = docker.build "aslambaba/myshoes:v69"
                 }
             }
         }
