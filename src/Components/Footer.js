@@ -16,7 +16,7 @@ function Footer() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <p>Created by AslamBabaV5</p>
+            <p>Created by AslamBaba v6</p>
         </div>
   );
 }
