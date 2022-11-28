@@ -7,7 +7,7 @@ function Home(){
         <div>
             <Menu />
             <div>
-                <h1>Welcome to MyShoes 2</h1>
+                <h1>Welcome to MyShoes 24</h1>
                 <image />
                 <button>Find Your Fashion</button>
             </div>
