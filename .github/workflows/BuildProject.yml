@@ -1,0 +1,14 @@
+name: Build Shoes Proj
+on: push
+jobs: 
+  build-node:
+    name: Build Project
+    runs-on: ubuntu-latest
+    container: node:14
+    steps:
+      - name: Checkout Name
+        uses: actions/checkout@v3
+      - name: Install Dep
+        run: npm install
+      - name: Build APP
+        run: npm run build
