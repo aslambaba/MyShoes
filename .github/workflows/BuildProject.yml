@@ -12,8 +12,6 @@ jobs:
         run: npm install
       - name: Build APP
         run: npm run build
-      - name: Setup GitHub Repo
-        run: git remote add origin https://github.com/aslambaba/testMyshoes.git
       - name: Push Files
         run: |
           git commit -am 'new Update'
