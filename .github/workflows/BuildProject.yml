@@ -12,3 +12,7 @@ jobs:
         run: npm install
       - name: Build APP
         run: npm run build
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my-artifact
