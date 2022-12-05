@@ -1,7 +1,7 @@
 name: TestAction Workflow
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   GenerateBuilds:
@@ -12,41 +12,41 @@ jobs:
         with:
           node-version: 14.x
       - name: Create Folder
-        run: mkdir Buildme 
+        run: mkdir Build_Files 
       - name: Clone Files  
-        run: git clone https://github.com/aslambaba/testactions.git
-        working-directory: ./Buildme
+        run: git clone https://github.com/aslambaba/MyShoes.git
+        working-directory: ./Build_Files
       - name: GitBranch Status
-        run: git checkout build-files && rm -r * && git checkout main *
-        working-directory: ./Buildme/testactions/
+        run: git checkout build-files && rm -r * && git checkout master *
+        working-directory: ./Build_Files/MyShoes/
       - name: Remove GitIgnore File
         run: |
           rm .gitignore
           git config --global user.name github_workflow
           git config --global user.email aslam91r@gmail.com
-          git remote set-url origin https://${{secrets.ACC_GIT}}@github.com/aslambaba/testactions.git
+          git remote set-url origin https://${{secrets.ACC_GIT}}@github.com/aslambaba/MyShoes.git
           git commit -am 'Remove GitIgnore File'
-        working-directory: ./Buildme/testactions/
+        working-directory: ./Build_Files/MyShoes/
       - name: Install Dep
         run: npm install
-        working-directory: ./Buildme/testactions/
+        working-directory: ./Build_Files/MyShoes/
       - name: Build Project
         run: npm run build
-        working-directory: ./Buildme/testactions/
+        working-directory: ./Build_Files/MyShoes/
       - name: Remove NodeModule
         run: rm -r node_modules/
-        working-directory: ./Buildme/testactions/
+        working-directory: ./Build_Files/MyShoes/
       - name: Deploy Project on Build Branch
         run: |
           git config --global user.name github_workflow
           git config --global user.email aslam91r@gmail.com
-          git remote set-url origin https://${{secrets.ACC_GIT}}@github.com/aslambaba/testactions.git
+          git remote set-url origin https://${{secrets.ACC_GIT}}@github.com/aslambaba/MyShoes.git
           git add .
           git commit -m 'Add Build Image'
-        working-directory: ./Buildme/testactions/
+        working-directory: ./Build_Files/MyShoes/
       - name: Check files on build branch
         run: git branch && ls -a
-        working-directory: ./Buildme/testactions/
+        working-directory: ./Build_Files/MyShoes/
       - name: Push to Build Branch
         run: git push origin build-files
-        working-directory: ./Buildme/testactions/
+        working-directory: ./Build_Files/MyShoes/
