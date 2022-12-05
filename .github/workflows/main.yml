@@ -2,7 +2,6 @@ name: TestAction Workflow
 on:
   push:
     branches: [master]
-
 jobs:
   GenerateBuilds:
     runs-on: ubuntu-latest
