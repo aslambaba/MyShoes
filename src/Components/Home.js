@@ -7,7 +7,7 @@ function Home(){
         <div>
             <Menu />
             <div>
-                <h1>Welcome to MyShoes Devops testing</h1>
+                <h1>Welcome to MyShoes Devops One Two Three</h1>
                 <image />
                 <button>Find Your Fashion</button>
             </div>
