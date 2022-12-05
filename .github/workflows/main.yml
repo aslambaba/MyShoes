@@ -1,48 +1,52 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+name: TestAction Workflow
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [main]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  GenerateBuilds:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.3
+      - name: Checkout Actions
+        uses: actions/checkout@v2
         with:
-          version: 12
-
-      
-      - name: GitHub Action for Yarn
-        uses: Borales/actions-yarn@v2.3.0
-        with:
-          # Yarn command
-          cmd: install
-          
-      - name: Download React Router
-        run: sudo yarn add react-router-dom
-        
-      - name: Creating Build
-        run: yarn build
-        
-      - name: Install Surge
-        run: npm install --global surge
-      
-      - name: Deploy Website on surge
-        run: surge ./build aslambaba-myshoes.surge.sh --token ${{secrets.SURGE_TOKEN}}
-
+          node-version: 14.x
+      - name: Create Folder
+        run: mkdir Buildme 
+      - name: Clone Files  
+        run: git clone https://github.com/aslambaba/testactions.git
+        working-directory: ./Buildme
+      - name: GitBranch Status
+        run: git checkout build-files && rm -r * && git checkout main *
+        working-directory: ./Buildme/testactions/
+      - name: Remove GitIgnore File
+        run: |
+          rm .gitignore
+          git config --global user.name github_workflow
+          git config --global user.email aslam91r@gmail.com
+          git remote set-url origin https://${{secrets.ACC_GIT}}@github.com/aslambaba/testactions.git
+          git commit -am 'Remove GitIgnore File'
+        working-directory: ./Buildme/testactions/
+      - name: Install Dep
+        run: npm install
+        working-directory: ./Buildme/testactions/
+      - name: Build Project
+        run: npm run build
+        working-directory: ./Buildme/testactions/
+      - name: Remove NodeModule
+        run: rm -r node_modules/
+        working-directory: ./Buildme/testactions/
+      - name: Deploy Project on Build Branch
+        run: |
+          git config --global user.name github_workflow
+          git config --global user.email aslam91r@gmail.com
+          git remote set-url origin https://${{secrets.ACC_GIT}}@github.com/aslambaba/testactions.git
+          git add .
+          git commit -m 'Add Build Image'
+        working-directory: ./Buildme/testactions/
+      - name: Check files on build branch
+        run: git branch && ls -a
+        working-directory: ./Buildme/testactions/
+      - name: Push to Build Branch
+        run: git push origin build-files
+        working-directory: ./Buildme/testactions/
